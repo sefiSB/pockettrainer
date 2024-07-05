@@ -1,4 +1,13 @@
+import { useState } from "react";
+import NewExercise from "../NewExercise/NewExercise";
 function NewPlan() {
+  const [exerciseList, setExerciseList] = useState([]);
+  const [counter, setCounter] = useState(0);
+  const addNew = (exercise) => {
+    setExerciseList([...exerciseList, exercise]);
+    setCounter(counter + 1);
+  };
+
   return (
     <>
       <>
@@ -16,12 +25,33 @@ function NewPlan() {
                 id="small-input"
                 class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
+
+              <div className="border-double border-4 border-green-400 p-5 m-5">
+                {exerciseList.map((elem) => {
+                  console.log(elem);
+
+                  return (
+                    <>
+                      <h2 className="text-left">
+                        <big>
+                          <strong>{elem.name}</strong>
+                        </big>
+                      </h2>
+                      <ul>
+                        {elem.reps.map((r, i) => {
+                          return (
+                            <li className="ml-10">
+                              {r} reps - {elem.weights[i]} kg{" "}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </>
+                  );
+                })}
+              </div>
             </div>
-            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-              <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                Green to blue
-              </span>
-            </button>
+            <NewExercise addExercise={addNew} id={counter} />
           </form>
         </div>
       </>
