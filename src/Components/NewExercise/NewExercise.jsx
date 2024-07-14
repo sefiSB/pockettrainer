@@ -56,7 +56,7 @@ function NewExercise({ addExercise, id }) {
               setWeights([...weights, weight]);
               setRep("");
               setWeight("");
-              setName("")
+              
             }}
           >
             +
@@ -88,6 +88,7 @@ function NewExercise({ addExercise, id }) {
               });
               setReps([])
               setWeights([])
+              setName("")
             }}
           >
             <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">

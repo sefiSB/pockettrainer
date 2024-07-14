@@ -10,13 +10,14 @@ import {  Route, Routes } from "react-router-dom";
 
 function App() {
   const [activeTab, setActiveTab] = useState("home")
+  const [user,setUser]=useState("sef");
   return (
     <>
     <Navbar active={activeTab} setActive={setActiveTab}/>
       <Routes>
-        <Route exact path="/" element={<Home/>} />
-        <Route exact path="/new" element={<NewPlan/>}/>
-        <Route exact path="/my" element={<MyPlans/>}/>
+        <Route exact path="/" element={<Home user={user}/>} />
+        <Route exact path="/new" element={<NewPlan user={user}/>}/>
+        <Route exact path="/my" element={<MyPlans user={user}/>}/>
       </Routes>
     </>
   );
