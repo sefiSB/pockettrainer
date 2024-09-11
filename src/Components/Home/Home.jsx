@@ -10,7 +10,7 @@ function Home(){
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
       <p className="mb-5">
-        Itt majd valami bemutatkozó szöveg lesz
+         I'm your pocket assistant. Let's hit the gym!
       </p>
       <button className="btn btn-primary">Get Started</button>
     </div>

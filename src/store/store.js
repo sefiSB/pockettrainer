@@ -1,23 +1,9 @@
-/* export const save = (obj)=>{
-  console.log(dummyPlans)
-  dummyPlans.map((elem,i)=>{
-    if(elem.user===obj.user){
-            return(
-                {
-                    user:elem.user,
-                    plans:[...elem.plans,obj.plan]
-                }
-            )
-        }
-        else{
-            return(elem)
-        }
-    })
-} */
+import fs from 'fs';
 
 export const save = (obj) => {
-  // Módosítsd a dummyPlans tömböt, és frissítsd az elemeket
-  dummyPlans = dummyPlans.map((elem) => {
+  let plandata= readPlandata()
+
+  plandata = plandata.map((elem) => {
     if (elem.user === obj.user) {
       // Visszatérítjük a frissített felhasználói tervet
       return {
@@ -29,8 +15,24 @@ export const save = (obj) => {
       return elem;
     }
   });
-  console.log(dummyPlans);
+  writePlandata(plandata)
+  console.log(plandata);
 };
+
+
+// JSON fájl írása
+const readPlandata = () => {
+  const data = fs.readFileSync('./plandata.json', 'utf8');
+  return JSON.parse(data);
+};
+
+
+// JSON fájl írása
+const writePlandata = (plans) => {
+  fs.writeFileSync('./plandata.json', JSON.stringify(plans, null, 2), 'utf8');
+};
+
+
 
 export let dummyPlans = [
   {

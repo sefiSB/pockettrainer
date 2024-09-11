@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { dummyPlans } from "../../store/store";
+import plandata from "../../store/plandata.json";
 function MyPlans({ user }) {
   const [activePlan, setActivePlan] = useState("");
   return (
     <>
       <div>
-        {dummyPlans.map((elem, i) => {
+        {plandata.map((elem, i) => {
           return (
             <>
               {user === elem.user ? (
