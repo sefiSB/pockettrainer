@@ -6,7 +6,8 @@ function MyPlans({ user }) {
   return (
     <>
       <div>
-        {plandata.map((elem, i) => {
+        {/* plandata.map((elem, i) => { */}
+        {dummyPlans.map((elem, i) => {
           return (
             <>
               {user === elem.user ? (

@@ -12,6 +12,12 @@ function NewPlan({ user }) {
     setCounter(counter + 1);
   };
 
+  const cleanForm = () =>{
+    setTitle("")
+    setCounter(0)
+    setExerciseList([])
+  }
+
 
   const savePlan = () => {
     save({
@@ -70,6 +76,7 @@ function NewPlan({ user }) {
           onClick={(e) => {
             e.preventDefault();
             savePlan();
+            cleanForm();
           }}
         >
           Save to plans

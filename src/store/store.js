@@ -1,6 +1,22 @@
 import fs from 'fs';
 
 export const save = (obj) => {
+
+  dummyPlans = dummyPlans.map((elem) => {
+    if (elem.user === obj.user) {
+      // Visszatérítjük a frissített felhasználói tervet
+      return {
+        ...elem,
+        plans: [...elem.plans, obj.plan],
+      };
+    } else {
+      // Ha a felhasználó nem egyezik, változatlanul visszatérítjük
+      return elem;
+    }
+  });
+  
+};
+/* export const save = (obj) => {
   let plandata= readPlandata()
 
   plandata = plandata.map((elem) => {
@@ -17,7 +33,7 @@ export const save = (obj) => {
   });
   writePlandata(plandata)
   console.log(plandata);
-};
+}; */
 
 
 // JSON fájl írása
