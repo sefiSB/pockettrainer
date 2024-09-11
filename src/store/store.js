@@ -1,10 +1,11 @@
-export const save = (obj)=>{
-    dummyPlans.map((elem,i)=>{
-        if(elem.user===obj.user){
+/* export const save = (obj)=>{
+  console.log(dummyPlans)
+  dummyPlans.map((elem,i)=>{
+    if(elem.user===obj.user){
             return(
                 {
                     user:elem.user,
-                    plans:[...plans,obj.plan]
+                    plans:[...elem.plans,obj.plan]
                 }
             )
         }
@@ -12,9 +13,26 @@ export const save = (obj)=>{
             return(elem)
         }
     })
-}
+} */
 
-export const dummyPlans = [
+export const save = (obj) => {
+  // Módosítsd a dummyPlans tömböt, és frissítsd az elemeket
+  dummyPlans = dummyPlans.map((elem) => {
+    if (elem.user === obj.user) {
+      // Visszatérítjük a frissített felhasználói tervet
+      return {
+        ...elem,
+        plans: [...elem.plans, obj.plan],
+      };
+    } else {
+      // Ha a felhasználó nem egyezik, változatlanul visszatérítjük
+      return elem;
+    }
+  });
+  console.log(dummyPlans);
+};
+
+export let dummyPlans = [
   {
     user: "sef",
     plans: [

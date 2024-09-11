@@ -8,7 +8,7 @@ function NewPlan({ user }) {
     setExerciseList([...exerciseList, exercise]);
     setCounter(counter + 1);
   };
-  const [title, setTitle] = "";
+  const [title, setTitle] = useState("");
 
   const savePlan = () => {
     save({
@@ -47,8 +47,6 @@ function NewPlan({ user }) {
                 <>
                   <div className="border-double border-4 border-green-400 p-5 m-5">
                     {exerciseList.map((elem) => {
-                      console.log(elem);
-
                       return (
                         <>
                           <h2 className="text-left">
